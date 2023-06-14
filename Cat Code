@@ -10,7 +10,7 @@ const LaunchRequestHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
     },
     handle(handlerInput) {
-        const speakOutput = 'Hey';
+        const speakOutput = '<speak> <audio src="soundbank://soundlibrary/animals/amzn_sfx_cat_purr_02"/> </speak>';
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
@@ -18,45 +18,6 @@ const LaunchRequestHandler = {
             .getResponse();
     }
 };
-
-const HelloWorldIntentHandler = {
-    canHandle(handlerInput) {
-        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'HelloWorldIntent';
-    },
-    handle(handlerInput) {
-        const hello1 = '<speak><amazon:emotion name="excited" intensity="medium"> hoi </amazon:emotion></speak>';
-        const hello2 = '<speak><amazon:emotion name="excited" intensity="medium"> hello </amazon:emotion></speak>';
-        const hello3 = '<speak><amazon:emotion name="excited" intensity="medium"> hey </amazon:emotion></speak>';
-        const hello4 = '<speak><amazon:emotion name="excited" intensity="medium"> hi </amazon:emotion></speak>';
-        
-        const hellos= [hello1,hello2,hello3,hello4];
-        var randomHello = hellos [getRandomInt(0, hellos.length)];
-        //const randomHello = 'Hi'
-
-        return handlerInput.responseBuilder
-            .speak(randomHello)
-            .reprompt()
-            .getResponse();
-    }
-};
-
-
-const HowAreYouIntentHandler = {
-    canHandle(handlerInput) {
-        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'HowAreYouIntent';
-    },
-    handle(handlerInput) {
-        const speakOutput = '<speak><amazon:emotion name="excited" intensity="high"> prima </amazon:emotion></speak>';
-
-        return handlerInput.responseBuilder
-            .speak(speakOutput)
-            .reprompt()
-            .getResponse();
-    }
-};
-
 
 var lastnumberfound = -1;
 var valuetotest = 0;
@@ -69,23 +30,15 @@ const catchAllIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'catchAllIntent';
     },
     handle(handlerInput) {
-
-        const sound1 = '<speak> hmm </speak>';
-        const sound2 = '<speak> ok </speak>';
-        const sound3 = '<speak>  <emphasis level="reduced"><lang xml:lang="de-DE"> ja </lang></emphasis> </speak>'; //amazon seems to have trouble adjusting to one word setences and sounds
-        const sound4 = '<speak> ah </speak>';
-        const sound5 = '<speak> <lang xml:lang="de-DE">  ah ja </lang> </speak>';
-        const sound6 = '<speak> <lang xml:lang="de-DE">  ja ja </lang> </speak>';
-        const sound7 = '<speak> <lang xml:lang="de-DE">  ja ja ja </lang> </speak>';
-        const sound8 = '<speak> hmm <break time="0.5s"/> hmm </speak>';
-        const sound9 = '<speak> hmm <prosody pitch="+15%"> hmm </prosody></speak>';
-        const sound10 = '<speak><prosody pitch="-5%"> ah </prosody></speak>';
-        const sound11 = '<speak><prosody pitch="+10%"> ah </prosody></speak>';
-        const sound12 = '<speak><lang xml:lang="de-DE"> ah, ja </lang></speak>';
-        const sound13 = '<speak><prosody pitch="-5%"> ja </prosody> </speak>';
-        const sound14 = '<speak> yeah </speak>';
+        //const speakOutput = 'Miauw';
+        //var catSpeak = '<speak> This is Alexa\'s regular speech, followed by the sound effect named Bear Groan Roar (1). <audio src="soundbank://soundlibrary/animals/amzn_sfx_bear_groan_roar_01"/> </speak>';
+        const sound1 = '<speak> <audio src="soundbank://soundlibrary/animals/amzn_sfx_cat_meow_1x_01"/> </speak>';
+        const sound2 = '<speak> <audio src="soundbank://soundlibrary/animals/amzn_sfx_cat_meow_1x_02"/> </speak>';
+        const sound3 = '<speak> <audio src="soundbank://soundlibrary/animals/amzn_sfx_cat_long_meow_1x_01"/> </speak>';
+        const sound4 = '<speak> <audio src="soundbank://soundlibrary/animals/amzn_sfx_cat_purr_02"/> </speak>';
+        const sound5 = '<speak> <audio src="soundbank://soundlibrary/animals/amzn_sfx_cat_purr_meow_01"/> </speak>';
         
-        const sounds= [sound1,sound2,sound3,sound4,sound5,sound6,sound7,sound8,sound9,sound10,sound11,sound12,sound13,sound14];
+        const sounds= [sound1,sound2,sound3,sound4,sound5];
         
     do {
         valuetotest = getRandomInt (0,sounds.length);
@@ -96,6 +49,7 @@ const catchAllIntentHandler = {
         var randomSound = sounds[valuetotest]; //code to not repeat the last sound twice
 
         return handlerInput.responseBuilder
+            //.speak(speakOutput)
             .speak(randomSound)
             .reprompt()
             .getResponse();
@@ -114,7 +68,7 @@ const HelpIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.HelpIntent';
     },
     handle(handlerInput) {
-        const speakOutput = 'You can say hello to me! How can I help?';
+        const speakOutput = 'Meow Meow';
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
@@ -130,7 +84,7 @@ const CancelAndStopIntentHandler = {
                 || Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.StopIntent');
     },
     handle(handlerInput) {
-        const speakOutput = 'Bye!';
+        const speakOutput = '<speak> <audio src="soundbank://soundlibrary/animals/amzn_sfx_cat_long_meow_1x_01"/> </speak>';
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
@@ -148,8 +102,9 @@ const FallbackIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.FallbackIntent';
     },
     handle(handlerInput) {
-        const speakOutput = 'Sorry, I don\'t know about that. Please try again.';
-
+        //const speakOutput = 'Meow Meow Meow';
+        //const speakOutput = '<speak> <audio src="https://bigsoundbank.com/UPLOAD/mp3/0494.mp3"/> </speak>';
+        const speakOutput = '<speak> <audio src="soundbank://soundlibrary/animals/amzn_sfx_cat_purr_meow_01"/> </speak>';
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .reprompt(speakOutput)
@@ -218,8 +173,6 @@ const ErrorHandler = {
 exports.handler = Alexa.SkillBuilders.custom()
     .addRequestHandlers(
         LaunchRequestHandler,
-        HelloWorldIntentHandler,
-        HowAreYouIntentHandler,
         catchAllIntentHandler,
         HelpIntentHandler,
         CancelAndStopIntentHandler,
