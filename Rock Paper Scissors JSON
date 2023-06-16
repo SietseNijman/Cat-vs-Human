@@ -1,0 +1,79 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "rock paper scissor",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "GameIntent",
+                    "slots": [
+                        {
+                            "name": "action",
+                            "type": "ActionType"
+                        }
+                    ],
+                    "samples": [
+                        "i would like to chose {action}",
+                        "{action} please",
+                        "go with {action}",
+                        "go with {action} please",
+                        "take {action}",
+                        "i take {action}",
+                        "ill go with {action}",
+                        "i will go with {action}",
+                        "do {action}",
+                        "i do {action}",
+                        "choose {action}",
+                        "i choose {action}",
+                        "my choice is {action}",
+                        "{action}"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                }
+            ],
+            "types": [
+                {
+                    "name": "ActionType",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "scissor",
+                                "synonyms": [
+                                    "scissors"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "paper"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "rock"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
