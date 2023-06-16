@@ -1,0 +1,466 @@
+/* *
+ * This sample demonstrates handling intents from an Alexa skill using the Alexa Skills Kit SDK (v2).
+ * Please visit https://alexa.design/cookbook for additional examples on implementing slots, dialog management,
+ * session persistence, api calls, and more.
+ * */
+
+var lastnumberfound = -1;
+var valuetotest = 0;
+
+var lasttopicfound = -1;
+var topictotest = 0;
+
+//const userName = "unidentified";
+
+
+const Alexa = require('ask-sdk-core');
+
+const LaunchRequestHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
+    },
+    handle(handlerInput) {
+        
+        var randomStart = topics [getRandomInt(0, topics.length)];
+        const speakOutput = "Hey, " + randomStart;
+
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            .reprompt("Can you repeat that?")
+            .getResponse();
+    }
+};
+
+
+function getRandomInt(min, max) {
+    
+    return Math.floor(Math.random() * (max - min) + min);
+}
+
+//list of topics (https://psychcentral.com/blog/25-questions-for-cultivating-self-compassion#1)
+const topic1 = 'Is there anything bothering you today?';
+const topic2 = 'Can you tell me how you feel?';
+const topic3 = 'Can you tell me about your day?';
+const topic4 = 'Can you tell me if there is antyhing botherring you?';
+const topic5 = 'Is there anything you would like to talk about?';
+const topic6 = 'Are you struggling with something?';
+const topic7 = 'Is there anyone in your life you can easily talk to, about  what is on your heart?';
+const topic8 = 'What is on your heart?';
+const topic9 = 'Do you have any trouble remembering things?';
+const topic10 = 'Are you having issues finding the rights words?';
+const topic11 = 'Do you feel like you are getting more forgetful?';
+const topic12 = 'Do you have issues with racalling things?';
+const topic13 = 'Do you enjoyr your life at the moment?';
+const topic14 = 'Is there anything you can do to make your life more enjoyable?';
+const topic15 = 'What makes your heart sing?';
+const topic16 = 'Is there something that would make you stand up and dance?';
+const topic17 = 'Is there anything stopping you from being kind towards yourself?';
+const topic18 = 'Can you tell me about your greatest qualities?';
+
+const topics = [topic1,topic2,topic3,topic4,topic5,topic6,topic7,topic8,topic9,topic10,topic11,topic12,topic13,topic14,topic15,topic16,topic17,topic18];
+
+    do {
+        topictotest = getRandomInt (0,topics.length);
+    }while (topictotest == lasttopicfound)
+    
+    lasttopicfound = topictotest;
+        
+        var randomTopic = topics[topictotest]; //code to not repeat the last sound twice
+        
+
+//var randomTopic = topics [getRandomInt(0, topics.length)];
+
+
+const HelloWorldIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'HelloWorldIntent';
+    },
+    handle(handlerInput) {
+        const hello1 = '<speak><amazon:emotion name="excited" intensity="medium"> hello </amazon:emotion></speak>';
+        const hello2 = '<speak><amazon:emotion name="excited" intensity="medium"> hey </amazon:emotion></speak>';
+        const hello3 = '<speak><amazon:emotion name="excited" intensity="medium"> hi </amazon:emotion></speak>';
+        
+        const hellos= [hello1,hello2,hello3];
+        var randomHello = hellos [getRandomInt(0, hellos.length)];
+
+        return handlerInput.responseBuilder
+            .speak(randomHello)
+            .reprompt()
+            .getResponse();
+    }
+};
+
+const TopicIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'TopicIntent';
+    },
+    handle(handlerInput) {
+        
+        const speakOutput = "Well, I do have a question for you, " + randomTopic;
+
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            .reprompt("Is there more you can tell me?")
+            .getResponse();
+    }
+};
+
+
+const HowAreYouIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'HowAreYouIntent';
+    },
+    handle(handlerInput) {
+        const speakOutput = '<speak><amazon:emotion name="excited" intensity="medium"> I am fine, and you? </amazon:emotion></speak>';
+
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            .reprompt()
+            .getResponse();
+    }
+};
+
+const YesIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'YesIntent';
+    },
+    handle(handlerInput) {
+        const Yes1 = '<speak><amazon:emotion name="excited" intensity="medium"> Okay, can you tell me more? </amazon:emotion></speak>';
+        const Yes2 = '<speak><amazon:emotion name="excited" intensity="medium"> Alright, can you elaborate? </amazon:emotion></speak>';
+        const Yes3 = '<speak><amazon:emotion name="excited" intensity="medium"> Ah, can you elaborate? </amazon:emotion></speak>';
+        
+        const Yes= [Yes1,Yes2,Yes3];
+        var randomYes = Yes [getRandomInt(0, Yes.length)];
+
+        return handlerInput.responseBuilder
+            .speak(randomYes)
+            .reprompt()
+            .getResponse();
+    }
+};
+
+const NoIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'NoIntent';
+    },
+    handle(handlerInput) {
+        const No1 = '<speak><amazon:emotion name="disappointed" intensity="medium"> Okay, can you tell me more? </amazon:emotion></speak>';
+        const No2 = '<speak><amazon:emotion name="disappointed" intensity="medium"> Alright, can you elaborate? </amazon:emotion></speak>';
+        const No3 = '<speak><amazon:emotion name="disappointed" intensity="medium"> Oh, can you elaborate? </amazon:emotion></speak>';
+        
+        const No= [No1,No2,No3];
+        var randomNo = No [getRandomInt(0, No.length)];
+
+        return handlerInput.responseBuilder
+            .speak(randomNo)
+            .reprompt()
+            .getResponse();
+    }
+};
+
+const GoodIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'GoodIntent';
+    },
+    handle(handlerInput) {
+        const speakOutput = '<speak><amazon:emotion name="excited" intensity="medium"> That is good to hear, can you tell me why you feel this way? </amazon:emotion></speak>';
+
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            .reprompt()
+            .getResponse();
+    }
+};
+
+const BadIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'BadIntent';
+    },
+    handle(handlerInput) {
+        const speakOutput = '<speak><amazon:emotion name="disappointed" intensity="medium"> Oh I am sorry to hear that, can you tell me why you feel this way? </amazon:emotion></speak>';
+
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            .reprompt()
+            .getResponse();
+    }
+};
+
+const ForgetWordHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ForgetWordIntent';
+    },
+    handle(handlerInput) {
+        const speakOutput = '<speak><amazon:emotion name="disappointed" intensity="low"> Oh, can you tell me more about this?</amazon:emotion> </speak>';
+
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            .reprompt("Are you able to elaborate on your issues with not being able to find the rights words?")
+            .getResponse();
+    }
+};
+
+const ForgetEventIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ForgetEventIntent';
+    },
+    handle(handlerInput) {
+        const speakOutput = '<speak><amazon:emotion name="disappointed" intensity="high"> Oh I am sorry, can you tell me more?</amazon:emotion></speak>';
+
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            .reprompt("Can you tell me more about the events you are forgetting?")
+            .getResponse();
+    }
+};
+
+const FollowConversationIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'FollowConversationIntent';
+    },
+    handle(handlerInput) {
+        const speakOutput = '<speak><amazon:emotion name="disappointed" intensity="low"> Oh, can you tell me more?</amazon:emotion></speak>';
+
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            .reprompt("Can you tell me more about issues with not following conversations?")
+            .getResponse();
+    }
+};
+
+const IntroductionIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'IntroductionIntent';
+    },
+    handle(handlerInput) {
+        const userName = handlerInput.requestEnvelope.request.intent.slots.name.value;
+        const speakOutput = "Hey " + userName + ", my name is Alexa";
+        
+        // if (userName == "undefined") {
+        //     const speakOutput = "Hey I am Alexa";
+        // } else {
+        //     const speakOutput = "Hey " + userName + ",my name is Alexa";
+        // }
+        
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            .reprompt()
+            .getResponse();
+    }
+};
+
+const RepeatIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'RepeatIntent';
+    },
+    handle(handlerInput) {
+        const speakOutput = "oh, I will repeat, " + topics[lasttopicfound];
+
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            .reprompt()
+            .getResponse();
+    }
+};
+
+const catchAllIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'catchAllIntent';
+    },
+    handle(handlerInput) {
+        
+        //english filer words https://speechling.com/blog/15-common-english-filler-words-you-should-know/ https://www.fluentu.com/blog/english/english-filler-words/
+
+        const filler1 = '<speak> hmm </speak>';
+        const filler2 = '<speak> ok </speak>';
+        const filler3 = '<speak> yes </speak>'; 
+        const filler4 = '<speak> ah </speak>';
+        const filler5 = '<speak> oh </speak>';
+        const filler6 = '<speak> um </speak>';
+        const filler7 = '<speak> aha </speak>';
+        const filler8 = '<speak> Okay</speak>';
+        const filler9 = '<speak> Alright </speak>';
+        const filler10 = '<speak> Right </speak>';
+        const filler11 = '<speak> uh </speak>';
+        const filler12 = '<speak> er </speak>';
+        const filler13 = '<speak> yeah </speak>';
+        const filler14 = '<speak> uh huh </speak>';
+        const filler15 = '<speak> uh </speak>';
+        const filler16 = '<speak> mhm </speak>';
+        
+        const fillers= [filler1,filler2,filler3,filler4,filler5,filler6,filler7,filler8,filler9,filler10,filler11,filler12,filler13, filler14, filler15, filler16];
+        
+    do {
+        valuetotest = getRandomInt (0,fillers.length);
+    }while (valuetotest == lastnumberfound)
+    
+    lastnumberfound = valuetotest;
+    
+        var randomSound = fillers[valuetotest]; //code to not repeat the last sound twice
+
+        return handlerInput.responseBuilder
+            .speak(randomSound)
+            .reprompt()
+            .getResponse();
+    }
+};
+
+const HelpIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.HelpIntent';
+    },
+    handle(handlerInput) {
+        const speakOutput = 'You can talk about whatever you want with me, but I would like to know about how you are feeling?';
+
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            .reprompt(speakOutput)
+            .getResponse();
+    }
+};
+
+const CancelAndStopIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.CancelIntent'
+                || Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.StopIntent');
+    },
+    handle(handlerInput) {
+        const speakOutput = 'Goodbye! I\'ll talk to you later.';
+
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            .getResponse();
+    }
+};
+/* *
+ * FallbackIntent triggers when a customer says something that doesn’t map to any intents in your skill
+ * It must also be defined in the language model (if the locale supports it)
+ * This handler can be safely added but will be ingnored in locales that do not support it yet 
+ * */
+const FallbackIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.FallbackIntent';
+    },
+    handle(handlerInput) {
+        const Fallback1 = 'I don\'t completely understand can you elaborate further?';
+        const Fallback2 = '<speak>Sorry I didn\'t quite catch that can you repeat yourself?</speak>';
+        const Fallback3 = '<speak>Could your maybe eleborate further so I can better understand? </amazon:emotion></speak>';
+        const Fallback4 = '<speak>I do not understand it all, but maybe if you tell me more I will.</speak>';
+        const Fallback5 = '<speak>I am having some issues understanding you, can you please elaborate further?</speak>';
+        
+        const fallbacks= [Fallback1,Fallback2,Fallback3,Fallback4,Fallback5];
+        
+    do {
+        valuetotest = getRandomInt (0,fallbacks.length);
+    }while (valuetotest == lastnumberfound)
+    
+    lastnumberfound = valuetotest;
+    
+        var randomFallback = fallbacks[valuetotest]; //code to not repeat the last sound twice
+
+        return handlerInput.responseBuilder
+            .speak(randomFallback)
+            .reprompt(randomFallback)
+            .getResponse();
+    }
+};
+/* *
+ * SessionEndedRequest notifies that a session was ended. This handler will be triggered when a currently open 
+ * session is closed for one of the following reasons: 1) The user says "exit" or "quit". 2) The user does not 
+ * respond or says something that does not match an intent defined in your voice model. 3) An error occurs 
+ * */
+const SessionEndedRequestHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'SessionEndedRequest';
+    },
+    handle(handlerInput) {
+        console.log(`~~~~ Session ended: ${JSON.stringify(handlerInput.requestEnvelope)}`);
+        // Any cleanup logic goes here.
+        return handlerInput.responseBuilder.getResponse(); // notice we send an empty response
+    }
+};
+/* *
+ * The intent reflector is used for interaction model testing and debugging.
+ * It will simply repeat the intent the user said. You can create custom handlers for your intents 
+ * by defining them above, then also adding them to the request handler chain below 
+ * */
+const IntentReflectorHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest';
+    },
+    handle(handlerInput) {
+        const intentName = Alexa.getIntentName(handlerInput.requestEnvelope);
+        const speakOutput = `You just triggered ${intentName}`;
+
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
+            .getResponse();
+    }
+};
+/**
+ * Generic error handling to capture any syntax or routing errors. If you receive an error
+ * stating the request handler chain is not found, you have not implemented a handler for
+ * the intent being invoked or included it in the skill builder below 
+ * */
+const ErrorHandler = {
+    canHandle() {
+        return true;
+    },
+    handle(handlerInput, error) {
+        const speakOutput = 'Sorry, I had trouble doing what you asked. Please try again.';
+        console.log(`~~~~ Error handled: ${JSON.stringify(error)}`);
+
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            .reprompt(speakOutput)
+            .getResponse();
+    }
+};
+
+/**
+ * This handler acts as the entry point for your skill, routing all request and response
+ * payloads to the handlers above. Make sure any new handlers or interceptors you've
+ * defined are included below. The order matters - they're processed top to bottom 
+ * */
+exports.handler = Alexa.SkillBuilders.custom()
+    .addRequestHandlers(
+        LaunchRequestHandler,
+        RepeatIntentHandler,
+        HelloWorldIntentHandler,
+        HowAreYouIntentHandler,
+        IntroductionIntentHandler,
+        TopicIntentHandler,
+        YesIntentHandler,
+        NoIntentHandler,
+        GoodIntentHandler,
+        BadIntentHandler,
+        ForgetWordHandler,
+        ForgetEventIntentHandler,
+        FollowConversationIntentHandler,
+        catchAllIntentHandler,
+        HelpIntentHandler,
+        CancelAndStopIntentHandler,
+        FallbackIntentHandler,
+        SessionEndedRequestHandler,
+        IntentReflectorHandler)
+    .addErrorHandlers(
+        ErrorHandler)
+    .withCustomUserAgent('sample/hello-world/v1.2')
+    .lambda();
