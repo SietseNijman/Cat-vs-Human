@@ -1,0 +1,143 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "number below ten",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "GameIntent",
+                    "slots": [
+                        {
+                            "name": "number",
+                            "type": "NumberType"
+                        }
+                    ],
+                    "samples": [
+                        "The number I choose is {number}",
+                        "go with {number}",
+                        "I go with {number}",
+                        "I think I want {number}",
+                        "please {number}",
+                        "{number}  please",
+                        "I will get {number}",
+                        "I'll take {number}",
+                        "I will take {number}",
+                        "The number I want is {number}",
+                        "I get {number}",
+                        "I want {number}",
+                        "I take {number}",
+                        "I choose {number}",
+                        "{number}",
+                        "My number is {number}"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                }
+            ],
+            "types": [
+                {
+                    "name": "NumberType",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "ten",
+                                "synonyms": [
+                                    "10"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nine",
+                                "synonyms": [
+                                    "9"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "eight",
+                                "synonyms": [
+                                    "8"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "seven",
+                                "synonyms": [
+                                    "7"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "six",
+                                "synonyms": [
+                                    "6"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "five",
+                                "synonyms": [
+                                    "5"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "four",
+                                "synonyms": [
+                                    "4"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "three",
+                                "synonyms": [
+                                    "3"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "two",
+                                "synonyms": [
+                                    "2"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "one",
+                                "synonyms": [
+                                    "1"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
