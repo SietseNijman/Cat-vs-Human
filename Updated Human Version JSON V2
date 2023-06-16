@@ -1,0 +1,598 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "human interaction demonstrator",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "HelloWorldIntent",
+                    "slots": [],
+                    "samples": [
+                        "Hi",
+                        "Hello",
+                        "Hey"
+                    ]
+                },
+                {
+                    "name": "catchAllIntent",
+                    "slots": [
+                        {
+                            "name": "catch",
+                            "type": "CatchAll"
+                        }
+                    ],
+                    "samples": [
+                        "{catch}"
+                    ]
+                },
+                {
+                    "name": "HowAreYouIntent",
+                    "slots": [],
+                    "samples": [
+                        "how are you feeling",
+                        "how are you doing",
+                        "and how are you",
+                        "How are you",
+                        "Hoe gaat het"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "IntroductionIntent",
+                    "slots": [
+                        {
+                            "name": "name",
+                            "type": "AMAZON.FirstName"
+                        }
+                    ],
+                    "samples": [
+                        "I am called {name} and you",
+                        "I am called {name}",
+                        "my name is {name}",
+                        "my name is {name} and who are you",
+                        "I am {name} and you",
+                        "hey my {name} is who are you",
+                        "Hello I am {name} what is your name",
+                        "Hey I am {name}"
+                    ]
+                },
+                {
+                    "name": "TopicIntent",
+                    "slots": [],
+                    "samples": [
+                        "is there something else you want to know",
+                        "is there anything else you want to know",
+                        "what do i speak about",
+                        "what do i talk about",
+                        "what do i say",
+                        "what can we talk about",
+                        "what can I say",
+                        "I don't know what to say",
+                        "let me know what you want to talk about",
+                        "tell me what do you want to know",
+                        "what are we going to talk about",
+                        "do you want to know more",
+                        "What do you want to know",
+                        "What do you want me to tell you"
+                    ]
+                },
+                {
+                    "name": "RepeatIntent",
+                    "slots": [],
+                    "samples": [
+                        "can you repeat what you just said",
+                        "can you repeat that sentence",
+                        "I did not hear that",
+                        "what did it just say",
+                        "I didn't quite get that",
+                        "Can you repeat that"
+                    ]
+                },
+                {
+                    "name": "GoodIntent",
+                    "slots": [],
+                    "samples": [
+                        "alright",
+                        "good",
+                        "great",
+                        "okay",
+                        "fine"
+                    ]
+                },
+                {
+                    "name": "BadIntent",
+                    "slots": [],
+                    "samples": [
+                        "Horrible",
+                        "Terrible",
+                        "Bad"
+                    ]
+                },
+                {
+                    "name": "NoIntent",
+                    "slots": [],
+                    "samples": [
+                        "not at all",
+                        "by no means",
+                        "negative",
+                        "of course not",
+                        "Never",
+                        "Nada",
+                        "Nah",
+                        "Not",
+                        "No"
+                    ]
+                },
+                {
+                    "name": "YesIntent",
+                    "slots": [],
+                    "samples": [
+                        "not really",
+                        "by all means",
+                        "indeed",
+                        "certainly",
+                        "affirmative",
+                        "absolutely",
+                        "aye",
+                        "roger",
+                        "of course",
+                        "sure",
+                        "ok",
+                        "okay",
+                        "very well",
+                        "al right",
+                        "allright",
+                        "Yeah",
+                        "Ja",
+                        "Yes"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "CatchAll",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Polyborinae Shakerlike checkerwork pentadecylic shopgirl herbary disanagrammatize shoad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "minacious peroratory filibeg Kabirpanthi cyphella cattalo chaffy savanilla"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "undersight monotriglyphic uneffete trachycarpous albeit pardonableness Wade"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "babied vagueness elabrate graphophonic kalidium oligocholia floccus strang"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "unsole relatively Atrebates Paramecium vestryish stockfish subpreceptor"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "obstructionist undethroned unlockable Lincolniana haggaday vindicatively tithebook"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "superstrata shucking Umbrian hepatophlebotomy undreaded introspect doxographer tractility"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "slotter archae contrastimulant sopper Serranus remarry pterygial atactic"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "compartmentalize prenotice achromat suitability molt stethograph Ricciaceae ultrafidianism"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ferret genitofemoral greenhearted resistible unjapanned ferrate longitudinally Eomecon"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ungutted pontificially Oudenodon fossiled chess Unitarian bicone justice"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "kilp Callicarpa unforsaken undergarment maxim cosenator archmugwump fitted"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "overharshness filtrability visual predonate colisepsis unoccurring turbanlike flyboy"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "broadax lifeboat progenitive betel ashkoko cleronomy unpresaging pneumonectomy"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "defyingly amoralist toadship psoatic boyology unpartizan merlin nonskid"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ravinement pentameter proboscidate unexigent ringbone unnormal Entomophila perfectibilism"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "earsplitting mesoblastema outglow predeclare theriomorphism prereligious unarousing"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Cimbric sigillarid deconsecrate acceptableness balsamine anostosis disjunctively chafflike"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mistakenness preinspire tourbillion caraguata chloremia unsupportedness squatarole licitation"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "imbreviate Bertie arithmetical undramatically braccianite eightling imagerially leadoff"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "allonymous isoelectrically salubrity apositia phantomize Sangraal externomedian phylloidal"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Polyborinae Shakerlike"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "minacious peroratory"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "undersight monotriglyphic"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "babied vagueness"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "unsole relatively"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "obstructionist undethroned"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "superstrata shucking"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "slotter archae"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "compartmentalize"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ferret genitofemoral"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ungutted pontificially"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "kilp Callicarpa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "overharshness filtrability"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "broadax lifeboat"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "defyingly amoralist"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ravinement pentameter"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "earsplitting mesoblastema"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Cimbric sigillarid deconsecrate"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mistakenness preinspire"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "imbreviate Bertie"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "allonymous isoelectrically"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "herbary disanagrammatize shoad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "chaffy savanilla"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "pardonableness Wade"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "floccus strang"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "stockfish subpreceptor"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "vindicatively tithebook"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "doxographer tractility"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "pterygial atactic"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Ricciaceae ultrafidianism"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "longitudinally Eomecon"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bicone justice"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "archmugwump fitted"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "unoccurring turbanlike flyboy"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "unpresaging pneumonectomy"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "merlin nonskid"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "unnormal Entomophila perfectibilism"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "prereligious unarousing"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "anostosis disjunctively chafflike"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "unsupportedness squatarole licitation"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "imagerially leadoff"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "externomedian phylloidal"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "checkerwork pentadecylic shopgirl"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Kabirpanthi cyphella"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "uneffete trachycarpous albeit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "graphophonic kalidium oligocholia floccus"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "unsole vestryish stockfish subpreceptor"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "unlockable Lincolniana haggaday"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hepatophlebotomy undreaded"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sopper Serranus remarryc"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "suitability molt stethograph"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": " resistible unjapanned ferrate"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fossiled chess Unitarian bicone"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": " undergarment maxim cosenator"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "visual predonate colisepsis"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": " ashkoko cleronomy unpresaging"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": " psoatic boyology unpartizan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "unexigent ringbone unnormal"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "outglow predeclare theriomorphism"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "acceptableness balsamine"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "caraguata chloremia unsupportedness"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "undramatically braccianite eightling"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "apositia phantomize Sangraal"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
